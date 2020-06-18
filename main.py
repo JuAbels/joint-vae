@@ -3,6 +3,7 @@ from jointvae.models import VAE
 from jointvae.training import Trainer
 from utils.dataloaders import get_mnist_dataloaders
 from torch import optim
+from viz.visualize import Visualizer as Viz
 
 
 batch_size = 64
@@ -36,4 +37,8 @@ trainer = Trainer(model, optimizer,
 trainer.train(data_loader, epochs)
 
 # Save trained model
-torch.save(trainer.model.state_dict(), 'example-model.pt')
+#torch.save(trainer.model.state_dict(), 'example-model.pt')
+
+# Visualize samples from the model
+viz = Viz(model)
+samples = viz.samples()
