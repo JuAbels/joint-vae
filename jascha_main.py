@@ -1,15 +1,7 @@
-# Jascha's Main nix da
-
-import torch
 from jointvae.models import VAE
 from jointvae.training import Trainer
-from utils.dataloaders import get_mnist_dataloaders
-from torch import optim
-
-
-batch_size = 64
-lr = 5e-4
-epochs = 100
+from torch.optim import Adam
+from viz.visualize import Visualizer as Viz
 
 # Check for cuda
 use_cuda = torch.cuda.is_available()
@@ -25,19 +17,16 @@ model = VAE(img_size=img_size, latent_spec=latent_spec,
 if use_cuda:
     model.cuda()
 
-# Define optimizer
-optimizer = optim.Adam(model.parameters(), lr=lr)
+# Build a trainer and train model
+optimizer = Adam(model.parameters())
 
-# Define trainer
 trainer = Trainer(model, optimizer,
-                  cont_capacity=[0.0, 5.0, 25000, 30],
-                  disc_capacity=[0.0, 5.0, 25000, 30],
-                  use_cuda=use_cuda)
+                  cont_capacity=[0., 5., 25000, 30.],
+                  disc_capacity=[0., 5., 25000, 30.])
+trainer.train(dataloader, epochs=10)
 
-# Train model for 100 epochs
-# trainer.train(data_loader, epochs)
+# Visualize samples from the model
+viz = Viz(model)
+samples = viz.samples()
 
-# Save trained model
-# torch.save(trainer.model.state_dict(), 'example-model.pt')
-
-print("wupwup")
+# Do all sorts of fun things with model
