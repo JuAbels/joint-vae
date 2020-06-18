@@ -35,7 +35,9 @@ trainer = Trainer(model, optimizer,
                   use_cuda=use_cuda)
 
 # Train model for 100 epochs
-trainer.train(data_loader, epochs)
+# trainer.train(data_loader, epochs)
 
 # Save trained model
-torch.save(trainer.model.state_dict(), 'example-model.pt')
+# torch.save(trainer.model.state_dict(), 'example-model.pt')
+
+print("wupwup")
