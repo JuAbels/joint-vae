@@ -1,4 +1,4 @@
-# Jascha's Main blöablablalba
+# Jascha's Main nix da
 
 import torch
 from jointvae.models import VAE
