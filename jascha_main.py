@@ -1,4 +1,4 @@
-# meine Main
+# Jascha's Main
 
 import torch
 from jointvae.models import VAE
