@@ -17,7 +17,7 @@ def chart_viewer(title, xlabel, ylabel, x_data, y_data):
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     # Add Limits
-    return plt.show()
+    plt.show()
 
 def multiple_chart_viewer(title, xlabel, ylabel, x_data1, y_data1, x_data2, y_data2, x_data3, y_data3, x_data4, y_data4): 
     '''
@@ -33,4 +33,4 @@ def multiple_chart_viewer(title, xlabel, ylabel, x_data1, y_data1, x_data2, y_da
     # Add Labels
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
-    return plt.show()
+    plt.show()
