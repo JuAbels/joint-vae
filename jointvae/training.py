@@ -97,8 +97,12 @@ class Trainer():
 
         self.batch_size = data_loader.batch_size
         self.model.train()
+        # tr: save loss in an array for visualization
+        self.loss_arr = np.zeros(epochs)
         for epoch in range(epochs):
             mean_epoch_loss = self._train_epoch(data_loader)
+            # tr: add mean_epoch_loss to the loss array
+            self.loss_arr[epoch] = mean_epoch_loss
             print('Epoch: {} Average loss: {:.2f}'.format(epoch + 1,
                                                           self.batch_size * self.model.num_pixels * mean_epoch_loss))
 

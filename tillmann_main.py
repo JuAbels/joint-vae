@@ -5,11 +5,12 @@ from jointvae.models import VAE
 from jointvae.training import Trainer
 from utils.dataloaders import get_mnist_dataloaders
 from torch import optim
+from chart_view import chart_viewer
 
 
 batch_size = 64
 lr = 5e-4
-epochs = 100
+epochs = 10 # Tr: reduced epoch_nr
 
 # Check for cuda
 use_cuda = torch.cuda.is_available()
@@ -39,3 +40,8 @@ trainer.train(data_loader, epochs)
 
 # Save trained model
 torch.save(trainer.model.state_dict(), 'example-model.pt')
+
+# Show Chart of Loss
+xdata = epochs
+ydata = trainer.train.loss_arr
+chart_viewer("Loss Visualization", "Epochs", "Loss", xdata, ydata)
