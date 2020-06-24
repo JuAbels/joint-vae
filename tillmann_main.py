@@ -1,11 +1,13 @@
 # Jascha's Main
 
 import torch
+import numpy as np
 from jointvae.models import VAE
 from jointvae.training import Trainer
 from utils.dataloaders import get_mnist_dataloaders
 from torch import optim
 from chart_view import chart_viewer
+
 
 
 batch_size = 64
@@ -42,6 +44,6 @@ trainer.train(data_loader, epochs)
 torch.save(trainer.model.state_dict(), 'example-model.pt')
 
 # Show Chart of Loss
-xdata = epochs
+xdata = np.arange(epochs)
 ydata = trainer.loss_arr
 chart_viewer("Loss Visualization", "Epochs", "Loss", xdata, ydata)
