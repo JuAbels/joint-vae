@@ -121,6 +121,7 @@ class Trainer():
             imageio.mimsave(save_training_gif[0], training_progress_images,
                             fps=24)
 
+
     def _train_epoch(self, data_loader):
         """
         Trains the model for one epoch.
