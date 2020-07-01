@@ -29,7 +29,7 @@ if use_cuda:
     model.cuda()
 
 # Define optimizer
-optimizer = optim.Adam(model.parameters(), lr=lr)
+optimizer = optim.SGD(model.parameters(), lr=lr)
 
 # Define trainer
 trainer = Trainer(model, optimizer,
@@ -37,7 +37,7 @@ trainer = Trainer(model, optimizer,
                   disc_capacity=[0.0, 5.0, 25000, 30],
                   use_cuda=use_cuda)
 
-# Train model for 100 epochs
+# Train model for given number of epochs
 trainer.train(data_loader, epochs)
 
 # Save trained model
@@ -46,4 +46,4 @@ torch.save(trainer.model.state_dict(), 'example-model.pt')
 # Show Chart of Loss
 xdata = np.arange(epochs)
 ydata = trainer.loss_arr
-chart_viewer("Loss Visualization (MNIST, ADAM)", "Epochs", "Loss", xdata, ydata)
+chart_viewer("Loss Visualization (MNIST, SGD)", "Epochs", "Loss", xdata, ydata)
