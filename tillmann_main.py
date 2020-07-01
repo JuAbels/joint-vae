@@ -12,7 +12,7 @@ from chart_view import chart_viewer
 
 batch_size = 64
 lr = 5e-4
-epochs = 10 # Tr: reduced epoch_nr
+epochs = 50 # Tr: reduced epoch_nr
 
 # Check for cuda
 use_cuda = torch.cuda.is_available()
