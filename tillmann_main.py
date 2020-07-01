@@ -46,4 +46,4 @@ torch.save(trainer.model.state_dict(), 'example-model.pt')
 # Show Chart of Loss
 xdata = np.arange(epochs)
 ydata = trainer.loss_arr
-chart_viewer("Loss Visualization", "Epochs", "Loss", xdata, ydata)
+chart_viewer("Loss Visualization (MNIST, ADAM)", "Epochs", "Loss", xdata, ydata)

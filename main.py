@@ -37,6 +37,3 @@ trainer.train(data_loader, epochs)
 
 # Save trained model
 torch.save(trainer.model.state_dict(), 'example-model.pt')
-
-# Create Loss Function graph
-chart_view.chart_viewer('Adam-Loss (MNIST)')
