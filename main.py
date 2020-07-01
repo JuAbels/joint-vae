@@ -7,7 +7,7 @@ from torch import optim
 
 batch_size = 64
 lr = 5e-4
-epochs = 100
+epochs = 50
 
 # Check for cuda
 use_cuda = torch.cuda.is_available()
@@ -37,3 +37,6 @@ trainer.train(data_loader, epochs)
 
 # Save trained model
 torch.save(trainer.model.state_dict(), 'example-model.pt')
+
+# Create Loss Function graph
+chart_view.chart_viewer('Adam-Loss (MNIST)')
