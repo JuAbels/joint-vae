@@ -44,6 +44,10 @@ trainer.train(data_loader, epochs)
 torch.save(trainer.model.state_dict(), 'example-model.pt')
 
 # Show Chart of Loss
+# x-Achse: Epochenanzahl
 xdata = np.arange(epochs)
+# y-Achse: loss des trainers (in training.py)
 ydata = trainer.loss_arr
+# chart_viewer(title, xlabel, ylabel, data for x-achse, data for y-achse)
+# wird gespeichert unter title
 chart_viewer("Loss Visualization (MNIST, SGD)", "Epochs", "Loss", xdata, ydata)
