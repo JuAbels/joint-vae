@@ -84,6 +84,15 @@ def get_celeba_dataloader(batch_size=128, path_to_data='../celeba_64'):
     return celeba_loader
 
 
+def get_arabic_dataloader(batch_size=64, path_to_data='../data/ArabicLetter/csvTrainImages 13440x1024.csv'):
+    """Handwritten arabic dataloader with (32, 32) images."""
+    arabic_data = ArabicDataset(path_to_data,
+                                transform=transforms.ToTensor())
+    arabic_loader = DataLoader(arabic_data, batch_size=batch_size,
+                               shuffle=True)
+    return arabic_loader
+
+
 class DSpritesDataset(Dataset):
     """D Sprites dataset."""
     def __init__(self, path_to_data, subsample=1, transform=None):
@@ -114,6 +123,31 @@ class DSpritesDataset(Dataset):
 
 class CelebADataset(Dataset):
     """CelebA dataset with 64 by 64 images."""
+    def __init__(self, path_to_data, subsample=1, transform=None):
+        """
+        Parameters
+        ----------
+        subsample : int
+            Only load every |subsample| number of images.
+        """
+        self.img_paths = glob.glob(path_to_data + '/*')[::subsample]
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.img_paths)
+
+    def __getitem__(self, idx):
+        sample_path = self.img_paths[idx]
+        sample = imread(sample_path)
+
+        if self.transform:
+            sample = self.transform(sample)
+        # Since there are no labels, we just return 0 for the "label" here
+        return sample, 0
+
+
+class ArabicDataset(Dataset):
+    """Handwritten arabic letter dataset with 32 by 32 images."""
     def __init__(self, path_to_data, subsample=1, transform=None):
         """
         Parameters
