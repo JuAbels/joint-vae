@@ -3,6 +3,11 @@ import numpy as np
 from skimage.io import imread
 from torch.utils.data import Dataset, DataLoader
 from torchvision import datasets, transforms
+import pandas as pd
+import os
+import torch
+import os.path as osp
+from PIL import Image
 
 
 def get_mnist_dataloaders(batch_size=128, path_to_data='../data'):
@@ -86,8 +91,9 @@ def get_celeba_dataloader(batch_size=128, path_to_data='../celeba_64'):
 
 def get_arabic_dataloader(batch_size=64, path_to_data='../data/ArabicLetter/csvTrainImages 13440x1024.csv'):
     """Handwritten arabic dataloader with (32, 32) images."""
-    arabic_data = ArabicDataset(path_to_data,
-                                transform=transforms.ToTensor())
+    # arabic_data = ArabicDataset(csv_file, path_to_data,
+    #                            transform=transforms.ToTensor())
+    arabic_data = ArabicDataset(path_to_data)
     arabic_loader = DataLoader(arabic_data, batch_size=batch_size,
                                shuffle=True)
     return arabic_loader
@@ -148,24 +154,28 @@ class CelebADataset(Dataset):
 
 class ArabicDataset(Dataset):
     """Handwritten arabic letter dataset with 32 by 32 images."""
-    def __init__(self, path_to_data, subsample=1, transform=None):
+
+    def __init__(self, root):
+        """ Intialize the dataset
         """
-        Parameters
-        ----------
-        subsample : int
-            Only load every |subsample| number of images.
+        self.filenames = []
+        self.root = root
+        self.transform = transforms.ToTensor()
+        filenames = glob.glob(osp.join(root, '*.png'))
+        for fn in filenames:
+            self.filenames.append(fn)
+        self.len = len(self.filenames)
+
+    # You must override __getitem__ and __len__
+    def __getitem__(self, index):
+        """ Get a sample from the dataset
         """
-        self.img_paths = glob.glob(path_to_data + '/*')[::subsample]
-        self.transform = transform
+        image = Image.open(self.filenames[index])
+        self.label = int(os.path.splitext(os.path.basename(self.filenames[index]))[0].rsplit("_", 1)[-1])
+        return self.transform(image), self.label
 
     def __len__(self):
-        return len(self.img_paths)
-
-    def __getitem__(self, idx):
-        sample_path = self.img_paths[idx]
-        sample = imread(sample_path)
-
-        if self.transform:
-            sample = self.transform(sample)
-        # Since there are no labels, we just return 0 for the "label" here
-        return sample, 0
+        """
+        Total number of samples in the dataset
+        """
+        return self.len
