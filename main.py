@@ -7,7 +7,7 @@ from torch import optim
 
 batch_size = 64
 lr = 5e-4
-epochs = 100
+epochs = 50
 
 # Check for cuda
 use_cuda = torch.cuda.is_available()

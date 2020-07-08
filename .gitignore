@@ -17,4 +17,5 @@
 *.synctex.gz
 *.idea/
 
-*__pycharm__
+*/__pycharm__/
+*__pycharm__/
