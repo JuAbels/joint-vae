@@ -27,7 +27,7 @@ def load(path):
     latent_spec = specs["latent_spec"]
 
     # Get image size
-    if dataset == 'mnist' or dataset == 'fashion_mnist':
+    if dataset == 'mnist' or dataset == 'fashion_mnist' or dataset == 'arabicLetter':
         img_size = (1, 32, 32)
     if dataset == 'chairs' or dataset == 'dsprites':
         img_size = (1, 64, 64)
