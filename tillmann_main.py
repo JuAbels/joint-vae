@@ -12,7 +12,7 @@ from chart_view import chart_viewer
 
 batch_size = 64
 lr = 5e-4
-epochs = 50 # Tr: reduced epoch_nr
+epochs = 100
 
 # Check for cuda
 use_cuda = torch.cuda.is_available()
@@ -29,7 +29,7 @@ if use_cuda:
     model.cuda()
 
 # Define optimizer
-optimizer = optim.SGD(model.parameters(), lr=lr)
+optimizer = optim.Adam(model.parameters(), lr=lr)
 
 # Define trainer
 trainer = Trainer(model, optimizer,
@@ -50,4 +50,4 @@ xdata = np.arange(epochs)
 ydata = trainer.loss_arr
 # chart_viewer(title, xlabel, ylabel, data for x-achse, data for y-achse)
 # wird gespeichert unter title
-chart_viewer("Loss Visualization (MNIST, SGD)", "Epochs", "Loss", xdata, ydata)
+chart_viewer("Loss Visualization (MNIST, Adam)", "Epochs", "Loss", xdata, ydata)
