@@ -46,6 +46,7 @@ class Trainer():
         self.print_loss_every = print_loss_every
         self.record_loss_every = record_loss_every
         self.use_cuda = use_cuda
+        self.loss_save = []
 
         if self.model.is_continuous and self.cont_capacity is None:
             raise RuntimeError("Model is continuous but cont_capacity not provided.")
@@ -148,6 +149,7 @@ class Trainer():
                                                   self.model.num_pixels * mean_loss))
                 print_every_loss = 0.
         # Return mean epoch loss
+        self.loss_save.append(epoch_loss)
         return epoch_loss / len(data_loader.dataset)
 
     def _train_iteration(self, data):

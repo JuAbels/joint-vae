@@ -16,7 +16,7 @@ import os
 
 # For testing in home directory
 path_train = "data/HandwrittenArabic/Train Images 13440x32x32/train"
-save_dir = "trained_models/arabic/model_disc28/"
+save_dir = "trained_models/arabic/model_disc28_cont15/"
 test = '/content/joint-vae/trained_models/arabic/model.pt'
 
 if not os.path.isdir(save_dir):
@@ -24,12 +24,12 @@ if not os.path.isdir(save_dir):
 
 train_loader = get_arabic_dataloader(path_to_data=path_train)
 
-latent_spec = {'cont': 10, 'disc': [28]}
+latent_spec = {'cont': 15, 'disc': [28]}
 model = VAE(latent_spec=latent_spec, img_size=(1, 32, 32))
 optimizer = optim.Adam(model.parameters(), lr=5e-4)
 cont_capacity = [0.0, 5.0, 25000, 30.0]
 disc_capacity = [0.0, 5.0, 25000, 30.0]
-epochs = 1
+epochs = 2
 
 trainer = Trainer(model, optimizer,
                   cont_capacity=cont_capacity,
@@ -63,4 +63,8 @@ ydata = trainer.loss_arr
 # chart_viewer(title, xlabel, ylabel, data for x-achse, data for y-achse)
 # wird gespeichert unter title
 chart_viewer(save_dir, "Loss Visualization (MNIST, SGD)", "Epochs", "Loss", xdata, ydata)
+
+save_loss = np.array(trainer.loss_save).reshape(-1, 1)
+np.savetxt(save_dir+"Loss.txt", save_loss)
+np.savetxt(save_dir+"Mean_loss.txt", ydata.reshape(-1, 1))
 
