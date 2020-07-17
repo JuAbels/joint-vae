@@ -1,4 +1,4 @@
-# Jascha's Main
+# Tillmanns Main
 
 import torch
 import numpy as np
@@ -6,8 +6,10 @@ from jointvae.models import VAE
 from jointvae.training import Trainer
 from utils.dataloaders import get_mnist_dataloaders
 from torch import optim
-from chart_view import chart_viewer
 
+# Own coded function imports
+from chart_view import chart_viewer
+from couchy import cauchyLoss
 
 batch_size = 64
 lr = 5e-4
