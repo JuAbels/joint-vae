@@ -5,7 +5,7 @@ Author of this file: Tillmann
 # imports
 import matplotlib.pyplot as plt
 
-def chart_viewer(title, xlabel, ylabel, x_data, y_data, y_lim=(0, 1)): 
+def chart_viewer(title, xlabel, ylabel, x_data, y_data, y_lim=(0, 0.01)): 
     '''
     View any data as a chart (e.g. one loss function)
     The chart will be saved as png with the given title

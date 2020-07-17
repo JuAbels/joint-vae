@@ -9,7 +9,6 @@ from torch import optim
 from chart_view import chart_viewer
 
 
-
 batch_size = 64
 lr = 5e-4
 epochs = 100
