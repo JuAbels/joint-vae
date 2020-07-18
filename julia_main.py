@@ -10,13 +10,14 @@ from viz.visualize import Visualizer
 import json
 from chart_view import chart_viewer
 import os
+from torch import nn
 
 # For colab
 #path_train = "/content/joint-vae/data/HandwrittenArabic/Train Images 13440x32x32/train"
 
 # For testing in home directory
 path_train = "data/HandwrittenArabic/Train Images 13440x32x32/train"
-save_dir = "trained_models/arabic/model_disc28_cont15/"
+save_dir = "trained_models/arabic/model_test_loss/"
 test = '/content/joint-vae/trained_models/arabic/model.pt'
 
 if not os.path.isdir(save_dir):
@@ -25,7 +26,7 @@ if not os.path.isdir(save_dir):
 train_loader = get_arabic_dataloader(path_to_data=path_train)
 
 latent_spec = {'cont': 15, 'disc': [28]}
-model = VAE(latent_spec=latent_spec, img_size=(1, 32, 32))
+model = VAE(latent_spec=latent_spec, img_size=(1, 32, 32), loss="couchy")
 optimizer = optim.Adam(model.parameters(), lr=5e-4)
 cont_capacity = [0.0, 5.0, 25000, 30.0]
 disc_capacity = [0.0, 5.0, 25000, 30.0]

@@ -77,6 +77,8 @@ class Trainer():
             for i in range(len(self.model.latent_spec['disc'])):
                 self.losses['kl_loss_disc_' + str(i)] = []
 
+        self.error = 0
+
     def train(self, data_loader, epochs=10, save_training_gif=None):
         """
         Trains the model.
@@ -193,6 +195,7 @@ class Trainer():
         # Reconstruction loss is pixel wise cross-entropy
         recon_loss = F.binary_cross_entropy(recon_data.view(-1, self.model.num_pixels),
                                             data.view(-1, self.model.num_pixels))
+
         # F.binary_cross_entropy takes mean over pixels, so unnormalise this
         recon_loss *= self.model.num_pixels
 
