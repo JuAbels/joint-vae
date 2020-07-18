@@ -170,6 +170,8 @@ class Trainer():
         self.optimizer.zero_grad()
         recon_batch, latent_dist = self.model(data)
         loss = self._loss_function(data, recon_batch, latent_dist)
+        if loss is None:
+            return 0
         loss.backward()
         self.optimizer.step()
 
@@ -192,9 +194,14 @@ class Trainer():
             Dict with keys 'cont' or 'disc' or both containing the parameters
             of the latent distributions as values.
         """
-        # Reconstruction loss is pixel wise cross-entropy
-        recon_loss = F.binary_cross_entropy(recon_data.view(-1, self.model.num_pixels),
-                                            data.view(-1, self.model.num_pixels))
+        try:
+            # Reconstruction loss is pixel wise cross-entropy
+            recon_loss = F.binary_cross_entropy(recon_data.view(-1, self.model.num_pixels),
+                                                data.view(-1, self.model.num_pixels))
+        except RuntimeError:
+            self.error += 1
+            print("Error: %s" % self.error)
+            return None
 
         # F.binary_cross_entropy takes mean over pixels, so unnormalise this
         recon_loss *= self.model.num_pixels

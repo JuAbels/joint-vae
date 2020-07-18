@@ -30,7 +30,7 @@ model = VAE(latent_spec=latent_spec, img_size=(1, 32, 32), loss="couchy")
 optimizer = optim.Adam(model.parameters(), lr=5e-4)
 cont_capacity = [0.0, 5.0, 25000, 30.0]
 disc_capacity = [0.0, 5.0, 25000, 30.0]
-epochs = 2
+epochs = 10
 
 trainer = Trainer(model, optimizer,
                   cont_capacity=cont_capacity,
