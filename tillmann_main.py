@@ -9,11 +9,10 @@ from torch import optim
 
 # Own coded function imports
 from chart_view import chart_viewer
-from couchy import cauchyLoss
 
 batch_size = 64
 lr = 5e-4
-epochs = 100
+epochs = 1
 
 # Check for cuda
 use_cuda = torch.cuda.is_available()
@@ -25,7 +24,7 @@ img_size = (1, 32, 32)
 # Define latent spec and model
 latent_spec = {'cont': 10, 'disc': [10]}
 model = VAE(img_size=img_size, latent_spec=latent_spec,
-            use_cuda=use_cuda)
+            use_cuda=use_cuda, loss="cauchy")
 if use_cuda:
     model.cuda()
 
@@ -51,4 +50,4 @@ xdata = np.arange(epochs)
 ydata = trainer.loss_arr
 # chart_viewer(title, xlabel, ylabel, data for x-achse, data for y-achse)
 # wird gespeichert unter title
-chart_viewer("Loss Visualization (MNIST, Adam)", "Epochs", "Loss", xdata, ydata)
+chart_viewer("Loss Visualization (MNIST, cauchy)", "Epochs", "Loss", xdata, ydata)
