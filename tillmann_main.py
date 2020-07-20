@@ -9,6 +9,7 @@ from torch import optim
 
 # Own coded function imports
 from chart_view import chart_viewer
+import json
 
 batch_size = 64
 lr = 5e-4
@@ -42,6 +43,20 @@ trainer.train(data_loader, epochs)
 
 # Save trained model
 torch.save(trainer.model.state_dict(), 'example-model.pt')
+
+specs = {"cont_capacity": trainer.cont_capacity,
+         "disc_capacity": trainer.disc_capacity,
+         "record_loss_every": trainer.record_loss_every,
+         "batch_size": trainer.batch_size,
+         "latent_spec": model.latent_spec,
+         "epochs": [epochs],
+         "experiment_name": "2",
+         "lr": [0.0005],
+         "print_loss_every": trainer.print_loss_every,
+         "dataset": "arabicLetter"}
+
+with open('specs.json', 'w') as file:
+    json.dump(specs, file)
 
 # Show Chart of Loss
 # x-Achse: Epochenanzahl
