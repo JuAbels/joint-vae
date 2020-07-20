@@ -1,14 +1,12 @@
 import torch
 from torch import nn, optim
 from torch.nn import functional as F
-from couchy import cauchy
-from jointvae.loss_funct import Cauchy_Loss
 
 EPS = 1e-12
 
 
 class VAE(nn.Module):
-    def __init__(self, img_size, latent_spec, temperature=.67, use_cuda=False, loss="sigmoid"):
+    def __init__(self, img_size, latent_spec, temperature=.67, use_cuda=False):
         """
         Class which defines model and forward pass.
 
@@ -117,19 +115,14 @@ class VAE(nn.Module):
                 nn.ReLU()
             ]
 
-        self.loss = loss
         decoder_layers += [
             nn.ConvTranspose2d(64, 32, (4, 4), stride=2, padding=1),
             nn.ReLU(),
             nn.ConvTranspose2d(32, 32, (4, 4), stride=2, padding=1),
             nn.ReLU(),
             nn.ConvTranspose2d(32, self.img_size[0], (4, 4), stride=2, padding=1),
-            # nn.Sigmoid()
+            nn.Sigmoid()
         ]
-        if self.loss == "sigmoid":
-            decoder_layers += [nn.Sigmoid()]
-        elif self.loss == "couchy":
-            decoder_layers += [Cauchy_Loss(scale=10)]
 
         # Define decoder
         self.features_to_img = nn.Sequential(*decoder_layers)

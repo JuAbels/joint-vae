@@ -23,4 +23,4 @@ def chart_viewer(path, title, xlabel, ylabel, x_data, y_data, y_lim=(0, 0.01)):
     # Save Figure
     plt.savefig(path + title + ".png")
     # Show Figure
-    plt.show()
+    # plt.show()

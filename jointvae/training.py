@@ -10,7 +10,8 @@ EPS = 1e-12
 class Trainer():
     def __init__(self, model, optimizer, cont_capacity=None,
                  disc_capacity=None, print_loss_every=50, record_loss_every=5,
-                 use_cuda=False):
+                 use_cuda=False,
+                 loss="cross_entro"):
         """
         Class to handle training of model.
 
@@ -77,7 +78,7 @@ class Trainer():
             for i in range(len(self.model.latent_spec['disc'])):
                 self.losses['kl_loss_disc_' + str(i)] = []
 
-        self.error = 0
+        self.loss = loss
 
     def train(self, data_loader, epochs=10, save_training_gif=None):
         """
@@ -170,8 +171,6 @@ class Trainer():
         self.optimizer.zero_grad()
         recon_batch, latent_dist = self.model(data)
         loss = self._loss_function(data, recon_batch, latent_dist)
-        if loss is None:
-            return 0
         loss.backward()
         self.optimizer.step()
 
@@ -194,14 +193,17 @@ class Trainer():
             Dict with keys 'cont' or 'disc' or both containing the parameters
             of the latent distributions as values.
         """
-        try:
-            # Reconstruction loss is pixel wise cross-entropy
+        recon_loss = 0
+        # Reconstruction loss is pixel wise cross-entropy
+        if self.loss == "cross_entro":
             recon_loss = F.binary_cross_entropy(recon_data.view(-1, self.model.num_pixels),
                                                 data.view(-1, self.model.num_pixels))
-        except RuntimeError:
-            self.error += 1
-            print("Error: %s" % self.error)
-            return None
+        elif self.loss == "cauchy":
+            recon_loss = torch.mean(cauchy(recon_data.view(-1, self.model.num_pixels)-data.view(-1, self.model.num_pixels), 1))
+        elif self.loss == "MSE":
+            loss_func = torch.nn.MSELoss()
+            recon_loss = loss_func(recon_data.view(-1, self.model.num_pixels),
+                                   data.view(-1, self.model.num_pixels))
 
         # F.binary_cross_entropy takes mean over pixels, so unnormalise this
         recon_loss *= self.model.num_pixels
@@ -335,3 +337,35 @@ class Trainer():
         # KL loss of alpha with uniform categorical variable
         kl_loss = log_dim + mean_neg_entropy
         return kl_loss
+
+
+def log1p_safe(x):
+    '''
+    The same as torch.log1p(x), but clamps the input to prevent NaNs.
+    source: https://github.com/jonbarron/robust_loss_pytorch/blob/master/robust_loss_pytorch/util.py
+    '''
+    # x = torch.as_tensor(x)
+    return torch.log1p(torch.min(x, torch.tensor(33e37).to(x)))
+
+
+def cauchy(x, scale):
+    '''
+    Our own implementation of the couchy loss function (aka Lorentzian)
+    Reference: Jonathan T. Barron, "A General and Adaptive Robust Loss Function", CVPR, 2019
+
+    Args:
+        x: "The residual for which the loss is being computed. x can have any shape,
+            and alpha and scale will be broadcasted to match x's shape if necessary.
+            Must be a tensor of floats."
+        scale: "The scale parameter of the loss. When |x| < scale, the loss is an
+            L2-like quadratic bowl, and when |x| > scale the loss function takes on a
+            different shape according to alpha. Must be a tensor of single-precision
+            floats."
+
+    Returns:
+        loss value
+    '''
+
+    loss = log1p_safe(0.5 * (x / scale) ** 2)
+
+    return loss

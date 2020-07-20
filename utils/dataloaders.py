@@ -89,7 +89,7 @@ def get_celeba_dataloader(batch_size=128, path_to_data='../celeba_64'):
     return celeba_loader
 
 
-def get_arabic_dataloader(batch_size=64, path_to_data='../data/ArabicLetter/csvTrainImages 13440x1024.csv'):
+def get_arabic_dataloader(batch_size=64, path_to_data='./data/HandwrittenArabic/Train Images 13440x32x32'):
     """Handwritten arabic dataloader with (32, 32) images."""
     # arabic_data = ArabicDataset(csv_file, path_to_data,
     #                            transform=transforms.ToTensor())
@@ -97,6 +97,16 @@ def get_arabic_dataloader(batch_size=64, path_to_data='../data/ArabicLetter/csvT
     arabic_loader = DataLoader(arabic_data, batch_size=batch_size,
                                shuffle=True)
     return arabic_loader
+
+
+def get_shape_dataloader(batch_size=64, path_to_data='./data/Shape/shape'):
+    """Shapes of star, circle, square, triangle dataloader with (200, 200) images."""
+    # arabic_data = ArabicDataset(csv_file, path_to_data,
+    #                            transform=transforms.ToTensor())
+    shape_data = ShapeDataset(path_to_data)
+    shape_loader = DataLoader(shape_data, batch_size=batch_size,
+                              shuffle=True)
+    return shape_loader
 
 
 class DSpritesDataset(Dataset):
@@ -172,6 +182,41 @@ class ArabicDataset(Dataset):
         """
         image = Image.open(self.filenames[index])
         self.label = int(os.path.splitext(os.path.basename(self.filenames[index]))[0].rsplit("_", 1)[-1])
+        return self.transform(image), self.label
+
+    def __len__(self):
+        """
+        Total number of samples in the dataset
+        """
+        return self.len
+
+
+class ShapeDataset(Dataset):
+    """Handwritten arabic letter dataset with 32 by 32 images."""
+
+    def __init__(self, root):
+        """ Intialize the dataset"""
+        self.filenames = []
+        self.root = root
+        self.transform = transforms.Compose([
+                                transforms.Resize(32),
+                                transforms.ToTensor()
+                            ])
+        directory = os.listdir(self.root)
+        # delete mac files
+        if '.DS_Store' in directory:
+            directory.remove('.DS_Store')
+        for dir in directory:
+            files = glob.glob(osp.join(os.path.join(self.root, dir), '*.png'))
+            for fn in files:
+                self.filenames.append(fn)
+        self.len = len(self.filenames)
+
+    # You must override __getitem__ and __len__
+    def __getitem__(self, index):
+        """ Get a sample from the dataset"""
+        image = Image.open(self.filenames[index])
+        self.label = os.path.basename(os.path.dirname(self.filenames[0]))
         return self.transform(image), self.label
 
     def __len__(self):
