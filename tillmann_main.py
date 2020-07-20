@@ -25,7 +25,7 @@ img_size = (1, 32, 32)
 # Define latent spec and model
 latent_spec = {'cont': 10, 'disc': [10]}
 model = VAE(img_size=img_size, latent_spec=latent_spec,
-            use_cuda=use_cuda, loss="cauchy")
+            use_cuda=use_cuda)
 if use_cuda:
     model.cuda()
 
@@ -53,7 +53,7 @@ specs = {"cont_capacity": trainer.cont_capacity,
          "experiment_name": "2",
          "lr": [0.0005],
          "print_loss_every": trainer.print_loss_every,
-         "dataset": "arabicLetter"}
+         "dataset": "MNIST"}
 
 with open('specs.json', 'w') as file:
     json.dump(specs, file)

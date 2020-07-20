@@ -6,6 +6,33 @@ from torchvision.utils import make_grid
 
 EPS = 1e-12
 
+def cauchy(input, scale=1):
+    '''
+    Our own implementation of the couchy loss function (aka Lorentzian)
+    Reference: Jonathan T. Barron, "A General and Adaptive Robust Loss Function", CVPR, 2019
+    Args:
+        x: "The residual for which the loss is being computed. x can have any shape,
+            and alpha and scale will be broadcasted to match x's shape if necessary.
+            Must be a tensor of floats."
+        scale: "The scale parameter of the loss. When |x| < scale, the loss is an
+            L2-like quadratic bowl, and when |x| > scale the loss function takes on a
+            different shape according to alpha. Must be a tensor of single-precision
+            floats."
+    Returns:
+        loss value
+    '''
+
+    loss = log1p_safe(0.5 * (input / scale) ** 2)
+
+    return loss
+
+def log1p_safe(x):
+    '''
+    The same as torch.log1p(x), but clamps the input to prevent NaNs.
+    source: https://github.com/jonbarron/robust_loss_pytorch/blob/master/robust_loss_pytorch/util.py
+    '''
+    # x = torch.as_tensor(x)
+    return torch.log1p(torch.min(x, torch.tensor(33e37).to(x)))
 
 class Trainer():
     def __init__(self, model, optimizer, cont_capacity=None,
@@ -188,12 +215,15 @@ class Trainer():
             Dict with keys 'cont' or 'disc' or both containing the parameters
             of the latent distributions as values.
         """
+        '''
         # Reconstruction loss is pixel wise cross-entropy
         recon_loss = F.binary_cross_entropy(recon_data.view(-1, self.model.num_pixels),
                                             data.view(-1, self.model.num_pixels))
         # F.binary_cross_entropy takes mean over pixels, so unnormalise this
         recon_loss *= self.model.num_pixels
-
+        '''
+        cauchy_loss = torch.mean(cauchy(recon_data.view(-1, self.model.num_pixels) - data.view(-1, self.model.num_pixels)))
+        cauchy_loss *= self.model.num_pixels
         # Calculate KL divergences
         kl_cont_loss = 0  # Used to compute capacity loss (but not a loss in itself)
         kl_disc_loss = 0  # Used to compute capacity loss (but not a loss in itself)
@@ -233,11 +263,11 @@ class Trainer():
         kl_loss = kl_cont_loss + kl_disc_loss
 
         # Calculate total loss
-        total_loss = recon_loss + cont_capacity_loss + disc_capacity_loss
+        total_loss = cauchy_loss + cont_capacity_loss + disc_capacity_loss
 
         # Record losses
         if self.model.training and self.num_steps % self.record_loss_every == 1:
-            self.losses['recon_loss'].append(recon_loss.item())
+            self.losses['recon_loss'].append(cauchy_loss.item())
             self.losses['kl_loss'].append(kl_loss.item())
             self.losses['loss'].append(total_loss.item())
 
