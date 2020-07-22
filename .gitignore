@@ -32,6 +32,6 @@ data/HandwrittenArabic/.DS_Store
 data/HandwrittenArabic/Test Images 3360x32x32/.DS_Store
 data/HandwrittenArabic/Train Images 13440x32x32/.DS_Store
 
-trained_models/arabic/model_const30/training.gif
-trained_models/arabic/model_cont100_disc28/training.gif
+trained_models/arabic_500/model_const30/training.gif
+trained_models/arabic_500/model_cont100_disc28/training.gif
 
