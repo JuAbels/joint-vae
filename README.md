@@ -24,6 +24,9 @@ Sachin, Patel. A-Z Handwritten Alphabets, 2018. Accessed July 23, 2020. https://
 
 smeschke. Four Shapes, 2017. Accessed July 23, 2020. https://www.kaggle.com/smeschke/four-shapes.
 
+## Training Reference
+We used the GPU from [Google Colab](https://colab.research.google.com) for training JointVAE. 
+
 
 # ORIGINAL README
 
