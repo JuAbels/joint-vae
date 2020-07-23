@@ -1,3 +1,20 @@
+# OUR README
+# Generate handwritten numbers, letters and shapes by using JointVAE
+
+# Experiments
+
+## Nr. 1
+
+## Nr. 2
+
+## Nr. 3
+### Nr. 3.1
+
+# References
+
+
+# ORIGINAL README
+
 # Learning Disentangled Joint Continuous and Discrete Representations
 
 Pytorch implementation of [Learning Disentangled Joint Continuous and Discrete Representations](https://arxiv.org/abs/1804.00104) (NIPS 2018).
