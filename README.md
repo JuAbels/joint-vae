@@ -11,7 +11,7 @@
 
 # References
 ## Code Reference
-This repo contains [an existing Pytorch implementation](https://github.com/Schlumberger/joint-vae) of [Learning Disentangled Joint Continuous and Discrete Representations](https://arxiv.org/abs/1804.00104) (NIPS 2018) adjusted by our experimenting code.
+This repo contains [a forked Pytorch implementation](https://github.com/Schlumberger/joint-vae) of [Learning Disentangled Joint Continuous and Discrete Representations](https://arxiv.org/abs/1804.00104) (NIPS 2018) adjusted by our experimenting code.
 
 ## Dataset References
 Clarence, Zhao. Handwritten Math Symbol and Digit Dataset, 2020. Accessed July 23, 2020. https://www.kaggle.com/clarencezhao/handwritten-math-symbol-dataset/metadata.
