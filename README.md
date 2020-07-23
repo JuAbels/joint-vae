@@ -1,4 +1,3 @@
-# OUR README
 # Generate handwritten numbers, letters and shapes by using JointVAE
 
 # Experiments
@@ -11,6 +10,19 @@
 ### Nr. 3.1
 
 # References
+## Code Reference
+This repo contains [an existing Pytorch implementation](https://github.com/Schlumberger/joint-vae) of [Learning Disentangled Joint Continuous and Discrete Representations](https://arxiv.org/abs/1804.00104) (NIPS 2018) adjusted by our experimenting code.
+
+## Dataset References
+Clarence, Zhao. Handwritten Math Symbol and Digit Dataset, 2020. Accessed July 23, 2020. https://www.kaggle.com/clarencezhao/handwritten-math-symbol-dataset/metadata.
+
+LeCun, Yann, and Cortes Corinna. MNIST Handwritten Digit Database, 2010. Accessed July 23, 2020. http://yann.lecun.com/exdb/mnist/.
+
+Mohamed, Loey. Arabic Handwritten Characters Dataset, 2019. Accessed July 23, 2020. https://kaggle.com/mloey1/ahcd1.
+
+Sachin, Patel. A-Z Handwritten Alphabets, 2018. Accessed July 23, 2020. https://www.kaggle.com/sachinpatel21/az-handwritten-alphabets-in-csv-format.
+
+smeschke. Four Shapes, 2017. Accessed July 23, 2020. https://www.kaggle.com/smeschke/four-shapes.
 
 
 # ORIGINAL README
