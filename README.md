@@ -6,7 +6,6 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 ## Different dimensionalities for latent discrete variables
 ### Number of discrete value = 1
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_1/all_traversals.png" width="400">
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist1_traversal.png" width="400">
 
 ### Number of discrete value = Number of classes
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist4_traversal.gif" width="400">
