@@ -4,6 +4,12 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 # Experiments
 
 ## Different dimensionalities for latent discrete variables
+### Number of discrete value = Number of classes
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont10_traversal.gif" width="400">
+
+### Number of discrete values = Number of classes x 2
+
+### Number of discrete values = Number of classes / 2
 
 ## Different dimensionalities for latent continuous variables
 
@@ -11,7 +17,9 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 ### MSE
 ### Binary Cross Entropy
 ### Cauchy loss
+In consultation with our lecturer, we used the Cauchy Loss, trying to improve the results. 
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/CauchyScalarValue.png" width="400">
+However, the results became significantly worse. 
 
 # References
 Barron Jonathan T., “A General and Adaptive Robust Loss Function,” CVPR (2019).
