@@ -1,5 +1,5 @@
 # Generate handwritten numbers, letters and shapes by using JointVAE
-In the context of the lecture "Deep Learning - Architectures and Methods we re-implemented [JointVAE](https://github.com/Schlumberger/joint-vae) to generate handwritten numbers, letters and shapes. 
+In the context of the lecture "Deep Learning - Architectures and Methods" (TU Darmstadt), we re-implemented [JointVAE](https://github.com/Schlumberger/joint-vae) to generate handwritten numbers, letters and shapes. 
 
 # Experiments
 
@@ -11,6 +11,7 @@ In the context of the lecture "Deep Learning - Architectures and Methods we re-i
 ### MSE
 ### Binary Cross Entropy
 ### Cauchy loss
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/CauchyScalarValue.png" width="400">
 
 # References
 Barron Jonathan T., “A General and Adaptive Robust Loss Function,” CVPR (2019).
