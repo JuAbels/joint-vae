@@ -5,13 +5,23 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 
 ## Different dimensionalities for latent discrete variables
 ### Number of discrete value = Number of classes
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont10_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist4_traversal.gif" width="400">
 
 ### Number of discrete values = Number of classes x 2
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist8_traversal.gif" width="400">
 
 ### Number of discrete values = Number of classes / 2
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist2_traversal.gif" width="400">
 
 ## Different dimensionalities for latent continuous variables
+### continuous value = 10
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont10_traversal.gif" width="400">
+
+### continuous value = 20
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont20_traversal.gif" width="400">
+
+### continuous value = 5
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont5_traversal.gif" width="400">
 
 ## Different loss functions 
 ### MSE
@@ -19,7 +29,9 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 ### Cauchy loss
 In consultation with our lecturer, we used the Cauchy Loss, trying to improve the results. 
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/CauchyScalarValue.png" width="400">
-However, the results became significantly worse. 
+
+However, the results became significantly worse:
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/trained_models/mnist_cauchy_100epochs_scale%3D1_disc%3D10/pictures_from_notebook/generated_samples_fromthemodel.png" width="400">
 
 # References
 Barron Jonathan T., “A General and Adaptive Robust Loss Function,” CVPR (2019).
