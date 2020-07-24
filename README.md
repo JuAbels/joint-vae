@@ -27,7 +27,7 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 ### MSE
 ### Binary Cross Entropy
 ### Cauchy loss
-In consultation with our lecturer, we used the Cauchy Loss, trying to improve the results. We also used different scale values (as in the figure donated as "c") as approach to improve the results.
+In consultation with our lecturer, we used the Cauchy Loss, trying to improve the results. We also used different scale values (in the figure donated as "c") for an approach to improve the results.
 
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/CauchyScalarValue.png" width="400">
 
