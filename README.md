@@ -9,6 +9,13 @@ We tested different dimensionalities for discrete and continuous variables for t
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_1/all_traversals.png" width="400">
 You can see that the latent continuous variables change the classes, which is not desired. In addition no desired aspects like changing rotation or width and others are learned. 
 
+
+### Number of discrete values = Number of classes / 2
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist2_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_7/all_traversals.png" width="400">
+Again not all classes are learned here and the latent continuous variables do change the class rather than performing transformations.
+
+
 ### Number of discrete value = Number of classes
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist4_traversal.gif" width="400">
 Mainly two classes, star and circle are learned. Again the latent continuous variables do the job of changing classes and changing things like rotation does often also resolve in changing the class.
@@ -22,10 +29,6 @@ All classes are represented by atleast one discrete variable and the latent cont
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_28/all_traversals.png" width="400">
 All classes are represented by atleast one discrete variable and the latent continuous variables do represent some desired behavior, however some of them do change the classes like from - to a 1, which is however acceptable if you think about rotation!
 
-### Number of discrete values = Number of classes / 2
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist2_traversal.gif" width="400">
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_7/all_traversals.png" width="400">
-Again not all classes are learned here and the latent continuous variables do change the class rather than performing transformations.
 
 ## Different dimensionalities for latent continuous variables
 ## continuous value = 1
