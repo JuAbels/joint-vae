@@ -7,10 +7,12 @@ We tested different dimensionalities for discrete and continuous variables for t
 ## Different dimensionalities for latent discrete variables
 ### Number of discrete value = 1
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_1/all_traversals.png" width="400">
+You can see that the latent continuous variables change the classes, which is not desired. In addition no desired aspects like changing rotation or width and others are learned. 
 
 ### Number of discrete value = Number of classes
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist4_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14/all_traversals.png" width="400">
+Mainly two classes, star and circle are learned. Again the latent continuous variables do the job of changing classes and changing things like rotation does often also resolve in changing the class.
 
 ### Number of discrete values = Number of classes x 2
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist8_traversal.gif" width="400">
