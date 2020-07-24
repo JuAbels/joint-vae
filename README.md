@@ -6,12 +6,15 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 ## Different dimensionalities for latent discrete variables
 ### Number of discrete value = Number of classes
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist4_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14/all_traversals.png" width="400">
 
 ### Number of discrete values = Number of classes x 2
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist8_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_28/all_traversals.png" width="400">
 
 ### Number of discrete values = Number of classes / 2
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist2_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_7/all_traversals.png" width="400">
 
 ## Different dimensionalities for latent continuous variables
 ### continuous value = 10
@@ -21,16 +24,18 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 ### continuous value = 20
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont20_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont20_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_20/all_traversals.png" width="400">
 
 ### continuous value = 5
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont5_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont5_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_5/all_traversals.png" width="400">
 
 ## Different loss functions 
 ### MSE
 ### Binary Cross Entropy
 ### Cauchy loss
-In consultation with our lecturer, we used the Cauchy Loss, trying to improve the results. We also used different scale values (in the figure donated as "c") for an approach to improve the results.
+In consultation with our lecturer, we used the [Cauchy Loss](https://ieeexplore.ieee.org/abstract/document/8809729), trying to improve the results. We also used different scale values (in the figure donated as "c") for an approach to improve the results.
 
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/CauchyScalarValue.png" width="400">
 
