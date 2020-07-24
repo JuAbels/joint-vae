@@ -1,15 +1,22 @@
 # Generate handwritten numbers, letters and shapes by using JointVAE
+In the context of the lecture "Deep Learning - Architectures and Methods we re-implemented [JointVAE](https://github.com/Schlumberger/joint-vae) to generate handwritten numbers, letters and shapes. 
 
 # Experiments
 
-## Nr. 1
+## Different dimensionalities for latent discrete variables
 
-## Nr. 2
+## Different dimensionalities for latent continuous variables
 
-## Nr. 3
-### Nr. 3.1
+## Different loss functions 
+### MSE
+### Binary Cross Entropy
+### Cauchy loss
 
 # References
+Barron Jonathan T., “A General and Adaptive Robust Loss Function,” CVPR (2019).
+
+Shi Wei, Xiong Kui, and Wang Shiyuan, Multikernel Adaptive Filters Under the Minimum Cauchy Kernel Loss Criterion, IEEE Access, 2019.
+
 ## Code Reference
 This repo contains [a forked Pytorch implementation](https://github.com/Schlumberger/joint-vae) of [Learning Disentangled Joint Continuous and Discrete Representations](https://arxiv.org/abs/1804.00104) (NIPS 2018) adjusted by our experimenting code.
 
