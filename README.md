@@ -21,7 +21,7 @@ Again not all classes are learned here and the latent continuous variables do ch
 Mainly two classes, star and circle are learned. Again the latent continuous variables do the job of changing classes and changing things like rotation does often also resolve in changing the class.
 
 
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14/all_traversals.png" width="400" margin-top:20px>
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14/all_traversals.png" width="400">
 Again not all classes are learned here, but the continuous latent variables do also learn some desired behavior like changing thickness.
 
 
@@ -30,7 +30,7 @@ Again not all classes are learned here, but the continuous latent variables do a
 All classes are represented by atleast one discrete variable and the latent continuous variables do not influence the classes anymore!
 
 
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_28/all_traversals.png" width="400"; padding-top:10px>
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_28/all_traversals.png" width="400">
 All classes are represented by atleast one discrete variable and the latent continuous variables do represent some desired behavior, however some of them do change the classes like from - to a 1, which is however acceptable if you think about rotation!
 
 
