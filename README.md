@@ -2,7 +2,7 @@
 In the context of the lecture "Deep Learning - Architectures and Methods" (TU Darmstadt), we re-implemented [JointVAE](https://github.com/Schlumberger/joint-vae) to generate handwritten numbers, letters and shapes. 
 
 # Experiments
-We tested different dimensionalities for discrete and continuous variables for the different datasets listed in the references. 
+We tested different dimensionalities for discrete and continuous variables for the different datasets listed in the references. In the following, we only show some interesting results instead of all generated images. 
 
 ## Different dimensionalities for latent discrete variables
 ### Number of discrete value = 1
@@ -21,6 +21,9 @@ We tested different dimensionalities for discrete and continuous variables for t
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_7/all_traversals.png" width="400">
 
 ## Different dimensionalities for latent continuous variables
+## continuous value = 1
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_1/all_traversals.png" width="400">
+
 ### continuous value = 10
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont10_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont10_traversal.gif" width="400">
