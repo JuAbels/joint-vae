@@ -30,6 +30,7 @@ Again not all classes are learned here, but the continuous latent variables do a
 All classes are represented by atleast one discrete variable and the latent continuous variables do not influence the classes anymore!
 
 
+
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_28/all_traversals.png" width="400">
 All classes are represented by atleast one discrete variable and the latent continuous variables do represent some desired behavior, however some of them do change the classes like from - to a 1, which is however acceptable if you think about rotation!
 
