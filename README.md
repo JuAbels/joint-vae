@@ -5,7 +5,7 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 We tested different dimensionalities for discrete and continuous variables for the different datasets listed in the references. In the following, we only show some interesting results instead of all generated images. 
 
 ## Different dimensionalities for latent discrete variables
-### Number of discrete value = 1
+### Number of discrete values = 1
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_1/all_traversals.png" width="400">
 You can see that the latent continuous variables change the classes, which is not desired. In addition no desired aspects like changing rotation or width and others are learned. 
 
@@ -16,7 +16,7 @@ You can see that the latent continuous variables change the classes, which is no
 Again not all classes are learned here and the latent continuous variables do change the class rather than performing transformations.
 
 
-### Number of discrete value = Number of classes
+### Number of discrete values = Number of classes
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist4_traversal.gif" width="400">
 Mainly two classes, star and circle are learned. Again the latent continuous variables do the job of changing classes and changing things like rotation does often also resolve in changing the class.
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14/all_traversals.png" width="400">
@@ -31,26 +31,30 @@ All classes are represented by atleast one discrete variable and the latent cont
 
 
 ## Different dimensionalities for latent continuous variables
-## continuous value = 1
+## Number of continuous values = 1
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_1/all_traversals.png" width="400">
 Not all classed are learned and the single continuous variable does the job of changing classes and applying transformations. The pattern of changing classes is also seen for the other discrete classes, not shown in the picture above.
 
-### continuous value = 10
+
+### Number of continuous values = 5
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont5_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont5_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_5/all_traversals.png" width="400">
+The continous variables do change classes and transformations at once, however they do learn transformations now instead as it is the case for 1 variable, which mostly just learned changing classes.
+
+
+### Number of continuous values = 10
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont10_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont10_traversal.gif" width="400">
 Latent continuous variables start to do their job, however there are some which also change the classes when applying transformations.
 
-### continuous value = 20
+
+### Number of continuous values = 20
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont20_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont20_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_20/all_traversals.png" width="400">
 It may be the case, that just some of the continuous variables do have a real influence, however you can select the interesting once since they are pretty nicely disentangled.
 
-### continuous value = 5
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont5_traversal.gif" width="400">
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont5_traversal.gif" width="400">
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_5/all_traversals.png" width="400">
-The continous variables do change classes and transformations at once, however they do learn transformations now instead as it is the case for 1 variable, which mostly just learned changing classes.
 
 ## Different loss functions 
 ### MSE
