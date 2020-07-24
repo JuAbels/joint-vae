@@ -31,6 +31,7 @@ In consultation with our lecturer, we used the Cauchy Loss, trying to improve th
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/CauchyScalarValue.png" width="400">
 
 However, the results became significantly worse:
+
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/trained_models/mnist_cauchy_100epochs_scale%3D1_disc%3D10/pictures_from_notebook/generated_samples_fromthemodel.png" width="400">
 
 # References
