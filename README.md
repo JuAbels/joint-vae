@@ -16,12 +16,15 @@ In the context of the lecture "Deep Learning - Architectures and Methods" (TU Da
 ## Different dimensionalities for latent continuous variables
 ### continuous value = 10
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont10_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont10_traversal.gif" width="400">
 
 ### continuous value = 20
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont20_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont20_traversal.gif" width="400">
 
 ### continuous value = 5
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont5_traversal.gif" width="400">
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont5_traversal.gif" width="400">
 
 ## Different loss functions 
 ### MSE
