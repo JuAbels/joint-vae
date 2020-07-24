@@ -2,6 +2,7 @@
 In the context of the lecture "Deep Learning - Architectures and Methods" (TU Darmstadt), we re-implemented [JointVAE](https://github.com/Schlumberger/joint-vae) to generate handwritten numbers, letters and shapes. 
 
 # Experiments
+We tested different dimensionalities for discrete and continuous variables for the different datasets listed in the references. 
 
 ## Different dimensionalities for latent discrete variables
 ### Number of discrete value = 1
