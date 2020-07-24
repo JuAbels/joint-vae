@@ -11,34 +11,43 @@ You can see that the latent continuous variables change the classes, which is no
 
 ### Number of discrete value = Number of classes
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist4_traversal.gif" width="400">
-<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14/all_traversals.png" width="400">
 Mainly two classes, star and circle are learned. Again the latent continuous variables do the job of changing classes and changing things like rotation does often also resolve in changing the class.
+<img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14/all_traversals.png" width="400">
+Again not all classes are learned here, but the continuous latent variables do also learn some desired behavior like changing thickness.
+
 
 ### Number of discrete values = Number of classes x 2
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist8_traversal.gif" width="400">
+All classes are represented by atleast one discrete variable and the latent continuous variables do not influence the classes anymore!
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_28/all_traversals.png" width="400">
+All classes are represented by atleast one discrete variable and the latent continuous variables do represent some desired behavior, however some of them do change the classes like from - to a 1, which is however acceptable if you think about rotation!
 
 ### Number of discrete values = Number of classes / 2
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/discrete/dist2_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_7/all_traversals.png" width="400">
+Again not all classes are learned here and the latent continuous variables do change the class rather than performing transformations.
 
 ## Different dimensionalities for latent continuous variables
 ## continuous value = 1
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_1/all_traversals.png" width="400">
+Not all classed are learned and the single continuous variable does the job of changing classes and applying transformations. The pattern of changing classes is also seen for the other discrete classes, not shown in the picture above.
 
 ### continuous value = 10
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont10_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont10_traversal.gif" width="400">
+Latent continuous variables start to do their job, however there are some which also change the classes when applying transformations.
 
 ### continuous value = 20
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont20_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont20_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_20/all_traversals.png" width="400">
+It may be the case, that just some of the continuous variables do have a real influence, however you can select the interesting once since they are pretty nicely disentangled.
 
 ### continuous value = 5
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/shape/continous/cont5_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/RESULTS/arabic/continous/cont5_traversal.gif" width="400">
 <img src="https://github.com/JuAbels/joint-vae/blob/Tillmann/RESULTS/Results_Jascha/ep50_disc_14_cont_5/all_traversals.png" width="400">
+The continous variables do change classes and transformations at once, however they do learn transformations now instead as it is the case for 1 variable, which mostly just learned changing classes.
 
 ## Different loss functions 
 ### MSE
