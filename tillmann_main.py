@@ -13,7 +13,7 @@ import json
 
 batch_size = 64
 lr = 5e-4
-epochs = 1
+epochs = 100
 
 # Check for cuda
 use_cuda = torch.cuda.is_available()
@@ -23,7 +23,7 @@ data_loader, _ = get_mnist_dataloaders(batch_size=batch_size)
 img_size = (1, 32, 32)
 
 # Define latent spec and model
-latent_spec = {'cont': 10, 'disc': [10]}
+latent_spec = {'cont': 10, 'disc': [20]}
 model = VAE(img_size=img_size, latent_spec=latent_spec,
             use_cuda=use_cuda)
 if use_cuda:

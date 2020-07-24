@@ -1,0 +1,7 @@
+epochs = 50
+lr = 5e-4
+optimizer = optim.Adam
+batch size = 256
+
+Dataset: Latin Letters, 1x28x28 upscaled to 1x32x32
+26 discrete and 8 continuous latents
